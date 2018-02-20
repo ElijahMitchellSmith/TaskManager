@@ -8,7 +8,7 @@ public class Task {
     private String description;
     private String dueDate;
 
-    public Task() {
+    public Task(String title) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
@@ -32,7 +32,7 @@ public class Task {
         return description;
     }
 
-    public void setDescription() {
+    public void setDescription(String description) {
         this.description = description;
     }
 
