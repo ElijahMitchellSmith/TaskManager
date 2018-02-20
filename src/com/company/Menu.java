@@ -23,11 +23,7 @@ public class Menu {
 
             switch (input.nextLine()) {
                 case "1":
-                    System.out.println("What is the name of the task you would like to add?");
-                    Task task = new Task(input.nextLine());
-                    System.out.println("What is the description of " + task.getTitle() +"?");
-                    input.nextLine();
-                    System.out.println(task.getDescription());
+                    library.addTask();
                     break;
                 case "2":
                     //Remove game
