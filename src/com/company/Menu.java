@@ -30,7 +30,6 @@ public class Menu {
                     //Remove game
 
                         System.out.println("You have chosen to remove a task from your library. \n" + "Here is a list of tasks, type the number of the one you would like to remove");
-
                         library.viewTasks();
                         library.removeTask(input.nextInt());
 //

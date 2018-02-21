@@ -36,21 +36,22 @@ public class Library {
     }
 
     protected void removeTask(int taskindex) {
+        taskindex --;
+        Task task = new Task(input.nextLine());
+
         if (incompleteTask.isEmpty()) {
             System.out.println("There are no tasks to select from!");
             menu.startMenu();
         } else
-        System.out.println("Which task would you like to remove?");
-        System.out.println(incompleteTask);
-        incompleteTask.remove(input.nextInt());
+        System.out.println(incompleteTask.get(taskindex).getTitle());
         System.out.println("Are you sure? Y or N");
         switch (input.nextLine().toUpperCase()) {
             case "Y":
                 System.out.println("Sure thing!");
+                incompleteTask.remove(task);
                 menu.startMenu();
                 break;
             case "N":
-                Task task = new Task(input.nextLine());
                 System.out.println("I'll fix that for ya!");
                 incompleteTask.add(task);
             default:
