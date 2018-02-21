@@ -1,8 +1,14 @@
 package com.company;
 
+import sun.awt.geom.AreaOp;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Task {
+    Calendar calendar = Calendar.getInstance();
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
     private Scanner input = new Scanner(System.in);
     private String title;
     private String description;
@@ -13,8 +19,6 @@ public class Task {
         this.description = description;
         this.dueDate = dueDate;
     }
-
-
 
 
     public String getTitle() {

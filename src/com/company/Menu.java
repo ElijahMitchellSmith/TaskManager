@@ -24,24 +24,21 @@ public class Menu {
             switch (input.nextLine()) {
                 case "1":
                     library.addTask();
+                    startMenu();
                     break;
                 case "2":
                     //Remove game
-//                    if (library.gamelibrary.isEmpty()) {
-//                        System.out.println("There are no games to select from!");
-//                        startMenu();
-//                    } else {
-//                        System.out.println("You have chosen to remove a game from your library. \n" + "Here is a list of games, type the number of the one you would like to remove");
-//
-//                        library.viewGameLibrary();
-//                        library.removeGame(input.nextInt());
-//                    }
+
+                        System.out.println("You have chosen to remove a task from your library. \n" + "Here is a list of tasks, type the number of the one you would like to remove");
+
+                        library.viewTasks();
+                        library.removeTask(input.nextInt());
 //
 //                    break;
-//                case "3":
-//                    library.viewGameLibrary();
-//                    startMenu();
-//                    break;
+                case "3":
+                    library.viewTasks();
+                    startMenu();
+                    break;
 //                case "4":
 //                    System.out.println("Which game would you like to remove? Type in its number");
 //                    library.viewGameLibrary();
@@ -65,14 +62,14 @@ public class Menu {
 //                    System.out.println("Pick a valid number!");
 //                    break;
             }
-            } catch(InputMismatchException ime){
-                input.nextLine();
+        } catch (InputMismatchException ime) {
+            input.nextLine();
 
-                System.out.println("Select a number from 1 - 7");
-                startMenu();
+            System.out.println("Select a number from 1 - 7");
+            startMenu();
 
 
-            }
         }
     }
+}
 
