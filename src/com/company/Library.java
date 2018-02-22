@@ -27,7 +27,7 @@ public class Library {
         Task task = new Task(input.nextLine());
         System.out.println("What is the description of " + task.getTitle() + "?");
         task.setDescription(input.nextLine());
-        System.out.println("This task has been added on " + dateFormat.format(calendar.getTime()) + "What is the month, day, and year this task should be completed?");
+        System.out.println("This task has been added on " + dateFormat.format(calendar.getTime()) + " What is the month, day, and year this task should be completed?");
         task.setDueDate(input.nextLine());
         allTasks.add(task);
         incompleteTask.add(task);
@@ -36,38 +36,73 @@ public class Library {
     }
 
     protected void removeTask(int taskindex) {
-        taskindex --;
-        Task task = new Task(input.nextLine());
-
-        if (incompleteTask.isEmpty()) {
-            System.out.println("There are no tasks to select from!");
-            menu.startMenu();
-        } else
+        taskindex--;
         System.out.println(incompleteTask.get(taskindex).getTitle());
         System.out.println("Are you sure? Y or N");
+        Task task = new Task(input.nextLine());
         switch (input.nextLine().toUpperCase()) {
             case "Y":
                 System.out.println("Sure thing!");
-                incompleteTask.remove(task);
+                incompleteTask.remove(taskindex);
                 menu.startMenu();
                 break;
             case "N":
                 System.out.println("I'll fix that for ya!");
                 incompleteTask.add(task);
+                menu.startMenu();
+                break;
             default:
                 System.out.println("Please make a choice");
                 removeTask(taskindex);
+                break;
 
         }
     }
 
     protected void viewTasks() {
         int position = 1;
-        for (int i = 0; i < incompleteTask.size(); i++) {
-            System.out.println(position + ". " + incompleteTask.get(i).getTitle());
-            position++;
+        System.out.println("Which tasks would you like view.\n1.Incomplete Tasks \n2.Complete \n3.All Tasks");
+        switch (input.nextInt()) {
+            case 1:
+                for (int i = 0; i < incompleteTask.size(); i++) {
+                    System.out.println(position + ". " + incompleteTask.get(i).getTitle());
+                    position++;
+                }
+                break;
+            case 2:
+                for (int i = 0; i < completeTask.size(); i++) {
+                    System.out.println(position + ". " + completeTask.get(i).getTitle());
+                    position++;
+                }
+            case 3:
+                for (int i = 0; i < allTasks.size(); i++) {
+                    System.out.println(position + ". " + allTasks.get(i).getTitle());
+                    position++;
+
+
+                }
+
 
         }
 
+
     }
-}
+
+    protected void viewIncompleteTasks() {
+        if (incompleteTask.isEmpty()) {
+            System.out.println("There are no tasks to select from!");
+            menu.startMenu();
+        } else {
+            int position = 1 ;
+            for (int i = 0; i < incompleteTask.size(); i++) {
+                System.out.println(position + ". " + incompleteTask.get(i).getTitle());
+                position++;
+            }
+
+
+            }
+
+        }
+
+
+    }

@@ -27,13 +27,12 @@ public class Menu {
                     startMenu();
                     break;
                 case "2":
-                    //Remove game
-
-                        System.out.println("You have chosen to remove a task from your library. \n" + "Here is a list of tasks, type the number of the one you would like to remove");
-                        library.viewTasks();
-                        library.removeTask(input.nextInt());
+                    System.out.println("You have chosen to remove a task from your library. \n" + "Here is a list of tasks, type the number of the one you would like to remove");
+                    library.viewIncompleteTasks();
+                    library.removeTask(input.nextInt());
+                    break;
 //
-//                    break;
+//
                 case "3":
                     library.viewTasks();
                     startMenu();
@@ -56,10 +55,10 @@ public class Menu {
 //                case "6":
 //                    System.exit(0);
 //                    break;
-//                default:
-
-//                    System.out.println("Pick a valid number!");
-//                    break;
+                default:
+//
+                    System.out.println("Pick a valid number!");
+                    break;
             }
         } catch (InputMismatchException ime) {
             input.nextLine();
