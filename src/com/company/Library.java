@@ -16,7 +16,9 @@ public class Library {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
 
 
+
     public Library(Menu menu) {
+
         this.menu = menu;
     }
 
@@ -39,7 +41,6 @@ public class Library {
         taskindex--;
         System.out.println(incompleteTask.get(taskindex).getTitle());
         System.out.println("Are you sure? Y or N");
-        Task task = new Task(input.nextLine());
         switch (input.nextLine().toUpperCase()) {
             case "Y":
                 System.out.println("Sure thing!");
@@ -47,6 +48,7 @@ public class Library {
                 menu.startMenu();
                 break;
             case "N":
+                Task task = new Task(input.nextLine());
                 System.out.println("I'll fix that for ya!");
                 incompleteTask.add(task);
                 menu.startMenu();
