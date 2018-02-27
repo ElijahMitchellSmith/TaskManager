@@ -37,12 +37,9 @@ public class Menu {
                     library.viewTasks();
                     startMenu();
                     break;
-//                case "4":
-//                    System.out.println("Which game would you like to remove? Type in its number");
-//                    library.viewGameLibrary();
-//                    library.checkoutGame(input.nextInt());
-//                    startMenu();
-//                    break;
+                    case "4":
+                        library.completeATask(input.nextInt());
+                    break;
 //                case "5":
 //                    if (library.gamelibrary.isEmpty()) {
 //                        System.out.println("There are no games to select from!");

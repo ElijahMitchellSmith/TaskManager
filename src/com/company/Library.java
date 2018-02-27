@@ -45,6 +45,8 @@ public class Library {
             case "Y":
                 System.out.println("Sure thing!");
                 incompleteTask.remove(taskindex);
+                allTasks.remove(taskindex);
+                completeTask.remove(taskindex);
                 menu.startMenu();
                 break;
             case "N":
@@ -103,6 +105,18 @@ public class Library {
 
 
             }
+
+        }
+        protected void completeATask(int taskindex) {
+        Task task = new Task(input.nextLine());
+        taskindex--;
+        System.out.println("What task would you like to set as complete.");
+        viewIncompleteTasks();
+        completeTask.add(task);
+        incompleteTask.remove(task);
+        System.out.println(task.getTitle() + " has been completed!");
+
+
 
         }
 
