@@ -107,10 +107,11 @@ public class Library {
             }
 
         }
-        protected void completeATask(int taskindex) {
-        Task task = new Task(input.nextLine());
+        protected void completeATask() {
+        int taskindex = 1;
         taskindex--;
         System.out.println("What task would you like to set as complete.");
+        Task task = new Task(input.nextLine());
         viewIncompleteTasks();
         completeTask.add(task);
         incompleteTask.remove(task);

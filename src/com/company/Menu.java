@@ -38,7 +38,7 @@ public class Menu {
                     startMenu();
                     break;
                     case "4":
-                        library.completeATask(input.nextInt());
+                        library.completeATask();
                     break;
 //                case "5":
 //                    if (library.gamelibrary.isEmpty()) {
