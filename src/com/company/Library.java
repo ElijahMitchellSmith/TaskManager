@@ -6,15 +6,16 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Library {
 
     public final Menu menu;
     private Scanner input = new Scanner(System.in);
-    private List<Task> allTasks = new ArrayList<Task>();
+//    private List<Task> allTasks = new ArrayList<Task>();
     private List<Task> incompleteTask = new ArrayList<Task>();
     private List<Task> completeTask = new ArrayList<Task>();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
-
+    private int taskindex = 1;
 
 
     public Library(Menu menu) {
@@ -31,7 +32,7 @@ public class Library {
         task.setDescription(input.nextLine());
         System.out.println("This task has been added on " + dateFormat.format(calendar.getTime()) + " What is the month, day, and year this task should be completed?");
         task.setDueDate(input.nextLine());
-        allTasks.add(task);
+//        allTasks.add(task);
         incompleteTask.add(task);
         menu.startMenu();
 
@@ -45,7 +46,7 @@ public class Library {
             case "Y":
                 System.out.println("Sure thing!");
                 incompleteTask.remove(taskindex);
-                allTasks.remove(taskindex);
+//                allTasks.remove(taskindex);
                 completeTask.remove(taskindex);
                 menu.startMenu();
                 break;
@@ -66,6 +67,7 @@ public class Library {
     protected void viewTasks() {
         int position = 1;
         System.out.println("Which tasks would you like view.\n1.Incomplete Tasks \n2.Complete \n3.All Tasks");
+
         switch (input.nextInt()) {
             case 1:
                 for (int i = 0; i < incompleteTask.size(); i++) {
@@ -78,13 +80,21 @@ public class Library {
                     System.out.println(position + ". " + completeTask.get(i).getTitle());
                     position++;
                 }
+                break;
+
             case 3:
-                for (int i = 0; i < allTasks.size(); i++) {
-                    System.out.println(position + ". " + allTasks.get(i).getTitle());
+                for (int i = 0; i < incompleteTask.size(); i++) {
+                    System.out.println(position + ". " + incompleteTask.get(i).getTitle());
                     position++;
-
-
                 }
+                for (int i = 0; i < completeTask.size(); i++) {
+                    System.out.println(position + ". " + completeTask.get(i).getTitle());
+                    position++;
+                }
+//                for (int i = 0; i < allTasks.size(); i++) {
+//                    System.out.println(position + ". " + allTasks.get(i).getTitle());
+//                    position++;
+                break;
 
 
         }
@@ -97,29 +107,29 @@ public class Library {
             System.out.println("There are no tasks to select from!");
             menu.startMenu();
         } else {
-            int position = 1 ;
+            int position = 1;
             for (int i = 0; i < incompleteTask.size(); i++) {
                 System.out.println(position + ". " + incompleteTask.get(i).getTitle());
                 position++;
             }
 
 
-            }
-
         }
-        protected void completeATask() {
-        int taskindex = 1;
-        taskindex--;
+
+    }
+
+    protected void completeATask() {
         System.out.println("What task would you like to set as complete.");
-        Task task = new Task(input.nextLine());
+        taskindex--;
         viewIncompleteTasks();
-        completeTask.add(task);
-        incompleteTask.remove(task);
-        System.out.println(task.getTitle() + " has been completed!");
-
-
-
-        }
+        input.nextInt();
+        incompleteTask.get(taskindex);
+        completeTask.add(incompleteTask.get(taskindex));
+        incompleteTask.remove(incompleteTask.get(taskindex));
+        System.out.println(incompleteTask.get(taskindex) + " has been completed!");
 
 
     }
+
+
+}
