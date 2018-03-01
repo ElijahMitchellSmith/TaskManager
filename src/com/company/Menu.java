@@ -39,6 +39,7 @@ public class Menu {
                     break;
                     case "4":
                         library.completeATask();
+                        startMenu();
                     break;
 //                case "5":
 //                    if (library.gamelibrary.isEmpty()) {

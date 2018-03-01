@@ -11,7 +11,7 @@ public class Library {
 
     public final Menu menu;
     private Scanner input = new Scanner(System.in);
-//    private List<Task> allTasks = new ArrayList<Task>();
+    //    private List<Task> allTasks = new ArrayList<Task>();
     private List<Task> incompleteTask = new ArrayList<Task>();
     private List<Task> completeTask = new ArrayList<Task>();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
@@ -120,8 +120,8 @@ public class Library {
 
     protected void completeATask() {
         System.out.println("What task would you like to set as complete.");
-        taskindex--;
         viewIncompleteTasks();
+        taskindex--;
         input.nextInt();
         incompleteTask.get(taskindex);
         completeTask.add(incompleteTask.get(taskindex));
