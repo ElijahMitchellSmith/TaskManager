@@ -18,6 +18,7 @@ public class Library {
     private int taskindex = 1;
 
 
+
     public Library(Menu menu) {
 
         this.menu = menu;
@@ -39,6 +40,7 @@ public class Library {
     }
 
     protected void removeTask(int taskindex) {
+
         taskindex--;
         System.out.println(incompleteTask.get(taskindex).getTitle());
         System.out.println("Are you sure? Y or N");
@@ -47,7 +49,6 @@ public class Library {
                 System.out.println("Sure thing!");
                 incompleteTask.remove(taskindex);
 //                allTasks.remove(taskindex);
-                completeTask.remove(taskindex);
                 menu.startMenu();
                 break;
             case "N":
@@ -121,12 +122,10 @@ public class Library {
     protected void completeATask() {
         System.out.println("What task would you like to set as complete.");
         viewIncompleteTasks();
-        taskindex--;
-        input.nextInt();
-        incompleteTask.get(taskindex);
+        incompleteTask.get(input.nextInt()-1);
         completeTask.add(incompleteTask.get(taskindex));
         incompleteTask.remove(incompleteTask.get(taskindex));
-        System.out.println(incompleteTask.get(taskindex) + " has been completed!");
+        System.out.println(incompleteTask.get(taskindex).getTitle() + " has been completed!");
 
 
     }
