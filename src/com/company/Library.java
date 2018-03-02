@@ -18,7 +18,6 @@ public class Library {
     private int taskindex = 1;
 
 
-
     public Library(Menu menu) {
 
         this.menu = menu;
@@ -51,9 +50,7 @@ public class Library {
                 menu.startMenu();
                 break;
             case "N":
-                Task task = new Task(input.nextLine());
                 System.out.println("I'll fix that for ya!");
-                incompleteTask.add(task);
                 menu.startMenu();
                 break;
             default:
@@ -118,16 +115,36 @@ public class Library {
 
     }
 
-    protected void completeATask() {
-        System.out.println("What task would you like to set as complete.");
-        viewIncompleteTasks();
-        incompleteTask.get(input.nextInt()-1);
-        completeTask.add(incompleteTask.get(taskindex));
-        incompleteTask.remove(incompleteTask.get(taskindex));
-        System.out.println(incompleteTask.get(taskindex).getTitle() + " has been completed!");
+    protected void completeATask(int taskindex) {
+//        taskindex--;
+//        incompleteTask.get(input.nextInt()-1);
+//        completeTask.add(incompleteTask.get(taskindex));
+//        incompleteTask.remove(taskindex);
+//        System.out.println(incompleteTask.get(taskindex).getTitle() + " has been completed!");
+
+        taskindex--;
+        System.out.println(incompleteTask.get(taskindex).getTitle());
+        System.out.println("Are you sure? Y or N");
+        switch (input.nextLine().toUpperCase()) {
+            case "Y":
+                System.out.println("Sure thing!");
+                completeTask.add(incompleteTask.get(taskindex));
+                incompleteTask.remove(taskindex);
+//                allTasks.remove(taskindex);
+                menu.startMenu();
+                break;
+            case "N":
+                System.out.println("I'll fix that for ya!");
+                menu.startMenu();
+                break;
+            default:
+                System.out.println("Please make a choice");
+                removeTask(taskindex);
+                break;
+
+
+        }
 
 
     }
-
-
 }

@@ -17,6 +17,7 @@ public class Menu {
                 "4. Complete a task \n" +
                 "5. Edit an incomplete \n" +
                 "6. Exit");
+        //Fixed recursion error. My switch case was asking fpr a String and was taking user input twice which caused the startmenu to run twice with my try catch method"
 
         try {
 
@@ -38,7 +39,9 @@ public class Menu {
                     startMenu();
                     break;
                 case 4:
-                    library.completeATask();
+                    System.out.println("What task would you like to set as complete.");
+                    library.viewIncompleteTasks();
+                    library.completeATask(input.nextInt());
                     startMenu();
                     break;
 //                case "5":
@@ -61,7 +64,7 @@ public class Menu {
         } catch (InputMismatchException ime) {
             input.nextLine();
 
-            System.out.println("Select a number from 1 - 7");
+            System.out.println("Select a number from 1 - 6");
             startMenu();
 
 
