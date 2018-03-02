@@ -40,7 +40,6 @@ public class Library {
     }
 
     protected void removeTask(int taskindex) {
-
         taskindex--;
         System.out.println(incompleteTask.get(taskindex).getTitle());
         System.out.println("Are you sure? Y or N");

@@ -21,25 +21,25 @@ public class Menu {
         try {
 
 
-            switch (input.nextLine()) {
-                case "1":
+            switch (input.nextInt()) {
+                case 1:
                     library.addTask();
                     startMenu();
                     break;
-                case "2":
+                case 2:
                     System.out.println("You have chosen to remove a task from your library. \n" + "Here is a list of tasks, type the number of the one you would like to remove");
                     library.viewIncompleteTasks();
                     library.removeTask(input.nextInt());
                     break;
 //
 //
-                case "3":
+                case 3:
                     library.viewTasks();
                     startMenu();
                     break;
-                    case "4":
-                        library.completeATask();
-                        startMenu();
+                case 4:
+                    library.completeATask();
+                    startMenu();
                     break;
 //                case "5":
 //                    if (library.gamelibrary.isEmpty()) {
