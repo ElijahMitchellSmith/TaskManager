@@ -68,7 +68,7 @@ public class Library {
         switch (input.nextInt()) {
             case 1:
                 for (int i = 0; i < incompleteTask.size(); i++) {
-                    System.out.println(position + ". " + incompleteTask.get(i).getTitle());
+                    System.out.println(position + ". " + incompleteTask.get(i).getTitle() + "\n" + incompleteTask.get(i).getDescription());
                     position++;
                 }
                 break;
@@ -144,6 +144,23 @@ public class Library {
 
 
         }
+
+
+    }
+
+    protected void editATask(int taskindex) {
+        taskindex--;
+        System.out.println(incompleteTask.get(taskindex).getTitle());
+        incompleteTask.remove(taskindex);
+        System.out.println("What is the new name of this task?");
+        Task task = new Task(input.nextLine());
+        System.out.println("What is the new description of " + task.getTitle() +".");
+        task.setDescription(input.nextLine());
+        System.out.println("What is the new due date of this task?");
+        task.setDueDate(input.nextLine());
+        incompleteTask.add(1,task);
+
+
 
 
     }

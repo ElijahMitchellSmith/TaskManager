@@ -44,18 +44,12 @@ public class Menu {
                     library.completeATask(input.nextInt());
                     startMenu();
                     break;
-//                case "5":
-//                    if (library.gamelibrary.isEmpty()) {
-//                        System.out.println("There are no games to select from!");
-//                        startMenu();
-//                    } else System.out.println("What Game would you like to check in? Type in its number.");
-//                    library.viewCheckedOutGames();
-//                    library.checkInGame(input.nextInt());
-//                    startMenu();
-//                    break;
-//                case "6":
-//                    System.exit(0);
-//                    break;
+                case 5:
+                    System.out.println("You have chosen to edit an incomplete task. \nWhich task would you like to edit.");
+                    library.viewIncompleteTasks();
+                    library.editATask(input.nextInt());
+                    startMenu();
+
                 default:
 //
                     System.out.println("Pick a valid number!");
