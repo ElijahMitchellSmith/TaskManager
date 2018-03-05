@@ -74,18 +74,18 @@ public class Library {
                 break;
             case 2:
                 for (int i = 0; i < completeTask.size(); i++) {
-                    System.out.println(position + ". " + completeTask.get(i).getTitle());
+                    System.out.println(position + ". " + completeTask.get(i).getTitle() + "\n" + completeTask.get(i).getDescription());
                     position++;
                 }
                 break;
 
             case 3:
                 for (int i = 0; i < incompleteTask.size(); i++) {
-                    System.out.println(position + ". " + incompleteTask.get(i).getTitle());
+                    System.out.println(position + ". " + incompleteTask.get(i).getTitle() + "\n" + incompleteTask.get(i).getDescription());
                     position++;
                 }
                 for (int i = 0; i < completeTask.size(); i++) {
-                    System.out.println(position + ". " + completeTask.get(i).getTitle());
+                    System.out.println(position + ". " + completeTask.get(i).getTitle() + "\n" + completeTask.get(i).getDescription());
                     position++;
                 }
 //                for (int i = 0; i < allTasks.size(); i++) {
@@ -150,17 +150,40 @@ public class Library {
 
     protected void editATask(int taskindex) {
         taskindex--;
-        System.out.println(incompleteTask.get(taskindex).getTitle());
-        incompleteTask.remove(taskindex);
-        System.out.println("What is the new name of this task?");
-        Task task = new Task(input.nextLine());
-        System.out.println("What is the new description of " + task.getTitle() +".");
-        task.setDescription(input.nextLine());
-        System.out.println("What is the new due date of this task?");
-        task.setDueDate(input.nextLine());
-        incompleteTask.add(1,task);
+        int edit = 1;
+//        System.out.println(incompleteTask.get(taskindex).getTitle());
+//        incompleteTask.remove(taskindex);
+//        System.out.println("What is the new name of this task?");
+//        Task task = new Task(input.nextLine());
+//        System.out.println("What is the new description of " + task.getTitle() + ".");
+//        task.setDescription(input.nextLine());
+//        System.out.println("What is the new due date of this task?");
+//        task.setDueDate(input.nextLine());
+//        incompleteTask.add(task);
+        // essentially deletes and creates a new task. It could be better but this is why this is only the 1st draft of the edit task method.
+
+//        System.out.println("Which task would you like to edit?");
+//        viewIncompleteTasks();
+//        input.nextInt();
 
 
+        System.out.println("What would you like to edit about the task? \n1.Title \n2.Details \n3. Finish Date \n4.Exit Editor.");
+        switch (input.nextInt()) {
+            case 1:
+                incompleteTask.get(edit - 1).setTitle(input.nextLine());
+                break;
+            case 2:
+                incompleteTask.get(edit - 1).setDescription(input.nextLine());
+                break;
+            case 3:
+                incompleteTask.get(edit - 1).setDueDate(input.nextLine());
+                break;
+            case 4:
+                menu.startMenu();
+            default:
+                System.out.println("Please make a valid choice.");
+                editATask(taskindex);
+        }
 
 
     }
