@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e78ca753-4dfd-4f3a-ac12-36f6202809b9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/company/Library.java" afterPath="$PROJECT_DIR$/src/com/company/Library.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Task.java" afterPath="$PROJECT_DIR$/src/com/company/Task.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,7 +39,7 @@
       <file leaf-file-name="Library.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Library.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
+            <state relative-caret-position="-1443">
               <caret line="86" column="143" lean-forward="false" selection-start-line="86" selection-start-column="143" selection-end-line="86" selection-end-column="143" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -368,7 +367,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Library.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="-1443">
           <caret line="86" column="143" lean-forward="false" selection-start-line="86" selection-start-column="143" selection-end-line="86" selection-end-column="143" />
           <folding>
             <element signature="imports" expanded="true" />
