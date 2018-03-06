@@ -48,3 +48,12 @@ public class Task {
         this.dueDate = dueDate;
     }
 }
+
+//    public String getCompletedDate() {
+//        return completedDate;
+//    }
+//
+//    public void setCompletedDate(String completedDate) {
+//        this.completedDate = completedDate;
+//    }
+//}
