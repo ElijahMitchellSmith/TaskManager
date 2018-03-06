@@ -39,6 +39,10 @@ public class Library {
     }
 
     protected void removeTask(int taskindex) {
+        if (incompleteTask.isEmpty() && completeTask.isEmpty()) {
+            System.out.println("There are no tasks to select from!");
+            menu.startMenu();
+        } else
         taskindex--;
         System.out.println(incompleteTask.get(taskindex).getTitle());
         System.out.println("Are you sure? Y or N");
@@ -123,6 +127,7 @@ public class Library {
 //        System.out.println(incompleteTask.get(taskindex).getTitle() + " has been completed!");
 
         taskindex--;
+        Calendar calendar = Calendar.getInstance();
         System.out.println(incompleteTask.get(taskindex).getTitle());
         System.out.println("Are you sure? Y or N");
         switch (input.nextLine().toUpperCase()) {
@@ -130,6 +135,7 @@ public class Library {
                 System.out.println("Sure thing!");
                 completeTask.add(incompleteTask.get(taskindex));
                 incompleteTask.remove(taskindex);
+                System.out.println("This task has been completed on " + dateFormat.format(calendar.getTime()));
 //                allTasks.remove(taskindex);
                 menu.startMenu();
                 break;
@@ -186,5 +192,17 @@ public class Library {
         }
 
 
+    }
+    protected void viewAllTasksForRemoval () { //placed this here so the program could eventually be used to remove complete tasks as well. I would have to rework my remove program or create another new method to remove tasks so I decided to save it for a little later.
+        int position = 1;
+        for (int i = 0; i < incompleteTask.size(); i++) {
+            System.out.println(position + ". " + incompleteTask.get(i).getTitle());
+            position++;
+        }
+
+        for (int i = 0; i < completeTask.size(); i++) {
+            System.out.println(position + ". " + completeTask.get(i).getTitle());
+            position++;
+        }
     }
 }

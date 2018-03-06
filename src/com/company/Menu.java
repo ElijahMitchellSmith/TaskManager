@@ -31,6 +31,7 @@ public class Menu {
                     System.out.println("You have chosen to remove a task from your library. \n" + "Here is a list of tasks, type the number of the one you would like to remove");
                     library.viewIncompleteTasks();
                     library.removeTask(input.nextInt());
+                    startMenu();
                     break;
 //
 //
