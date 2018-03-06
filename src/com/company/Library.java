@@ -29,12 +29,23 @@ public class Library {
         Task task = new Task(input.nextLine());
         System.out.println("What is the description of " + task.getTitle() + "?");
         task.setDescription(input.nextLine());
-        System.out.println("This task has been added on " + dateFormat.format(calendar.getTime()) + " What is the month, day, and year this task should be completed?");
+        System.out.println("This task has been added on " + dateFormat.format(calendar.getTime()) + " What is the month, day, and year this task should be completed? \n(Example: 01/02/34)");
         task.setDueDate(input.nextLine());
 //        allTasks.add(task);
-        incompleteTask.add(task);
-        menu.startMenu();
-
+        System.out.println("Is this task a priority? Y or N.");
+        switch (input.nextLine().toUpperCase()) {
+            case "Y":
+                incompleteTask.add(0, task);
+                menu.startMenu();
+                break;
+            case "N":
+                incompleteTask.add(task);
+                menu.startMenu();
+                break;
+            default:
+                System.out.println("Please make a valid choice");
+                menu.startMenu();
+        }
     }
 
     protected void removeTask(int taskindex) {
@@ -66,12 +77,13 @@ public class Library {
 
     protected void viewTasks() {
         int position = 1;
+        int priority = 1;
         System.out.println("Which tasks would you like view.\n1.Incomplete Tasks \n2.Complete \n3.All Tasks");
 
         switch (input.nextInt()) {
             case 1:
                 for (int i = 0; i < incompleteTask.size(); i++) {
-                    System.out.println(position + ". " + incompleteTask.get(i).getTitle() + "\n" + incompleteTask.get(i).getDescription() + "\nThis task is due by " + incompleteTask.get(i).getDueDate());
+                    System.out.println(position + ". " + incompleteTask.get(i).getTitle() + "\n" + incompleteTask.get(i).getDescription() + "\nThis task is due by " + incompleteTask.get(i).getDueDate() + "\nPriority level:" + priority++);
                     position++;
                 }
                 break;
