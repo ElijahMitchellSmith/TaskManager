@@ -6,6 +6,6 @@ public class Main {
 
         Menu menu = new Menu();
         menu.startMenu();
-	// write your code here
+        // write your code here
     }
 }

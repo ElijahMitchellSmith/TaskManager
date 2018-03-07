@@ -50,6 +50,9 @@ public class Menu {
                     library.viewIncompleteTasks();
                     library.editATask(input.nextInt());
                     startMenu();
+                case 6:
+                    System.exit(0);
+                    break;
 
                 default:
 //
