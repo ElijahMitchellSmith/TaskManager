@@ -51,6 +51,7 @@ public class Menu {
                     library.editATask(input.nextInt());
                     startMenu();
                 case 6:
+                    System.out.println("Goodbye");
                     System.exit(0);
                     break;
 
